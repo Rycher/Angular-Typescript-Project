@@ -6,8 +6,7 @@
     <button *ngIf="!book.done" (click)="markAsDone(book)"><i class="far fa-check-circle"></i>Done </button> 
     <button *ngIf="book.done" (click)="markAsUndone(book)"><i class="far fa-check-circle"></i>Retry </button> 
     <button (click)="remove(book)"><i class="far fa-trash-alt"></i>Remove</button>
-  </li> 
-  <button *ngIf="">Teste</button>
+  </li>   
 </ul>
 
 <div id="modal" *ngIf="mode=='add'" class="animated flipInX">

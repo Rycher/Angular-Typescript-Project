@@ -52,15 +52,12 @@ export class AppComponent {
   }
 
   addBook(){
-    this.books.push(
-      new Book(
-        this.books.length + 1,
-        this.form.controls['title'].value,
-        false
-      )
-    )
+    const title = this.form.controls['title'].value;
+    const id = this.books.length + 1;
+    this.books.push(new Book(id, title, false));
     this.save();
     this.clear();
+    this.changeMode('list');
   }
 
   save(){
@@ -70,6 +67,6 @@ export class AppComponent {
 
   load(){
     const data = localStorage.getItem('books');
-    this.books = data !== null? JSON.parse(data) : {};
+    this.books = data !== null? JSON.parse(data) : [];
   }
 }
