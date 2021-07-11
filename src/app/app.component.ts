@@ -11,6 +11,7 @@ export class AppComponent {
   public books: Book[] = [];
   public title: String = 'My books';
   public form: FormGroup;  
+  public mode: String = 'list';
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
@@ -20,7 +21,7 @@ export class AppComponent {
         Validators.required,
       ])]
     })
-    
+
     this.load();
   }
 
@@ -31,10 +32,14 @@ export class AppComponent {
     }
     this.save();
   }
-  
+
   markAsDone(book: Book){
     book.done = true;
     this.save();
+  }
+
+  changeMode(mode: String) {
+    this.mode = mode;
   }
 
   markAsUndone(book: Book){
