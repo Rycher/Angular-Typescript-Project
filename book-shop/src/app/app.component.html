@@ -1,37 +1,28 @@
-<h1 class="title animated jackInTheBox">{{title}}</h1>
-<h3 class="text-center" *ngIf="books.length==0"><p>No Books Found</p></h3>
+<h1><p>{{title}}</p></h1>
+<h3 *ngIf="books.length==0"><p>No Books Found</p></h3>
 
-<ul class="animated flipInX" *ngIf="mode=='list'">
-  <li *ngFor="let book of books">{{book.id}} - {{book.title}}  
-    <button *ngIf="!book.done" (click)="markAsDone(book)"><i class="far fa-check-circle"></i>Done </button> 
-    <button *ngIf="book.done" (click)="markAsUndone(book)"><i class="far fa-check-circle"></i>Retry </button> 
-    <button (click)="remove(book)"><i class="far fa-trash-alt"></i>Remove</button>
+<ul>
+  <li *ngFor="let book of books">{{book.id}} - {{book.title}} | 
+    <button *ngIf="!book.done" (click)="markAsDone(book)">Done </button> |
+    <button *ngIf="book.done" (click)="markAsUndone(book)">Retry </button> |
+    <button (click)="remove(book)">Remove</button>
   </li> 
   <button *ngIf="">Teste</button>
 </ul>
 
-<div id="modal" *ngIf="mode=='add'" class="animated flipInX">
-  <h1 class="text-center">New Book</h1>
-<form [formGroup]="form">      
+<form [formGroup]="form">
+
+  <fieldset>
+    <label>Book </label>
     <input 
     type="text" 
     placeholder="Book Title" 
     maxlenght="30"
-    formControlName="title"><br>
-    <small class="danger" *ngIf="form.controls.title.invalid && !form.controls.title.pristine && form.controls.title.value">Error 3 and 30 chars</small>
-    <p class="text-center">
-      <button [disabled]="form.invalid" (click)="addBook()" class="button"><i class="far fa-save"></i> Send </button>
-    </p>  
+    formControlName="title">
+    <small *ngIf="form.controls.title.invalid && !form.controls.title.pristine && form.controls.title.value">Error 3 and 30 chars</small>
+    <button [disabled]="form.invalid" (click)="addBook()"> Send </button>
+  </fieldset>
 </form>
-<br><br>
-</div>
-
-
-<button class="add-button animated fadeInUp button" (click)="changeMode('add')" *ngIf="mode=='list'">
-  <i class="fas fa-plus-circle"></i>
-  NEW BOOK
-</button>
-<button class="add-button animated fadeInUp button" (click)="changeMode('list')" *ngIf="mode=='add'">
-  <i class="fas fa-times"></i>
-  CANCEL
-</button>
+<!-- () = HTML > TS -->
+<!-- [] = TS > HTML -->
+<!-- [()] = TS <> HTML -->
