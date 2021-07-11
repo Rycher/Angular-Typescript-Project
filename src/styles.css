@@ -7,9 +7,9 @@ body {
     font-weight: 300;
     text-align: center;
     background: #3023ae;
-    background : -moz-linear-gradient(60deg, #23a2ae 0%, #9e6dd7 100%);
-    background : -webkit-linear-gradient(60deg, #23a2ae 0%, #9e6dd7 100%);
-    background : linear-gradient(60deg, #9b73a3 0%, #f1dddf 100%);
+    background : -moz-linear-gradient(60deg, #9b73a3 0%, #000 100%);
+    background : -webkit-linear-gradient(60deg, #9b73a3 0%, #000 100%);
+    background : linear-gradient(60deg, #9b73a3 0%, #000 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3023ae', endColorstr='#9e6dd7');
 }
 
